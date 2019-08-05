@@ -4,8 +4,10 @@ const session = require('express-session');
 require("dotenv").config();
 
 const app = express();
-
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
+
+// Routes Files
+const auth = require("./routes/authRoutes");
 
 app.use(express.json());
 app.use(
@@ -14,8 +16,8 @@ app.use(
         saveUninitialized: false,
         secret: SESSION_SECRET,
         cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7
-      } //7 days
+        maxAge: 1000 * 60 * 60 * 24 * 7 //7 days
+        } 
     })
 );
 
@@ -26,6 +28,9 @@ massive(CONNECTION_STRING).then(db => {
     .catch(err => {
     console.log("you have an err connecting to your database", err);
 });
+
+// use router files for endpoints
+app.use("/api/auth", auth);
 
 const PORT = SERVER_PORT || 6000;
 app.listen(PORT, () => console.log(`hey hey, you're on port ${PORT}`));
