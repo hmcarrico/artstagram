@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 //Components
-import LandingPage from "./Components/LandingPage/LandingPage";
+import AuthWizard from './Components/Auth/AuthWizard/AuthWizard';
 
 export default (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={AuthWizard} />
         </Switch>
     </BrowserRouter>
 );

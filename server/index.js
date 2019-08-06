@@ -30,7 +30,7 @@ massive(CONNECTION_STRING).then(db => {
 });
 
 // use router files for endpoints
-app.use("/api/auth", auth);
+app.use("/auth", auth);
 
 const PORT = SERVER_PORT || 6000;
 app.listen(PORT, () => console.log(`hey hey, you're on port ${PORT}`));
