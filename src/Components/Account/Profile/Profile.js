@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserPosts from '../UserPosts/UserPosts';
 import axios from 'axios';
 import './Profile.scss';
 
@@ -6,20 +7,28 @@ class Profile extends Component{
     constructor(){
         super();
         this.state = {
-            user: []
+            user: [],
+            posts: []
         }
     }
-    componentDidMount(){
-        axios.get(`/users/${this.props.match.params.username}`).then(res => {
-            console.log(res)
-            this.setState({
-                user: res.data[0]
-            })
+    async componentDidMount(){
+        let userData = await axios.get(`/users/${this.props.match.params.username}`).then(res => res.data[0])
+        let postData = await axios.get(`/posts/user/${this.props.match.params.username}`).then(res => res.data)
+
+        this.setState({
+            user: userData,
+            posts: postData
         })
     }
 
     render(){
-        const { user } = this.state;
+        const { user, posts } = this.state;
+        console.log('profile page data -->', user, posts)
+        const displayUserPosts = posts.map(post => {
+            return <div>
+                <UserPosts post={post}/>
+            </div>
+        })
         return (
             <div>
                 <div className="profile-container">
@@ -52,6 +61,9 @@ class Profile extends Component{
                 </div>
                 <hr />
                     <b style={{fontSize: '30px', margin: '0 auto', textAlign: 'center'}}>POSTS</b>
+                    <div className='post-display'>
+                        {displayUserPosts}
+                    </div>
             </div>
         )
     }

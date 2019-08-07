@@ -44,3 +44,14 @@
         font-size: 15px;
     }
 }
+
+.post-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    img {
+        max-height: 150px;
+        max-width: 180px;
+        margin: 10px;
+    }
+}
