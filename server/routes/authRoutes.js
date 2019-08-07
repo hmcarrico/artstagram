@@ -7,4 +7,5 @@ router.post("/login", controller.login);
 router.get("/logout", controller.logout);
 router.get("/usersession", controller.getSession);
 router.get("/verifyUsername/:username", controller.checkAvailableUsernames);
+router.get("/verifyEmail/:email", controller.checkAvailableEmail);
 module.exports = router;

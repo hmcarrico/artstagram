@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LandingPage from '../../LandingPage/LandingPage';
+import LandingPage from '../LandingPage/LandingPage';
 import Login from '../Login/Login';
 import RegisterWizard from '../Register/Wizard/RegisterWizard';
 

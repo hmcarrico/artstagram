@@ -1,0 +1,46 @@
+.profile-container  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .follows {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    p {
+        font-size: 18px;
+    }
+    b {
+        font-size: 14px;
+    }
+}
+
+.followers-picture {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div {
+        padding: 5px;        
+    }
+    img {
+        height: 180px;
+        width: 180px;
+        border: 10px solid black;
+        border-radius: 50%;
+        padding: 5px;
+    }
+}
+
+.name-bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 15px;
+    p {
+        font-size: 12px;
+    }
+    b {
+        font-size: 15px;
+    }
+}

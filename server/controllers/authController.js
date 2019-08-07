@@ -81,5 +81,15 @@ module.exports = {
         } else {
             res.status(200).send({message: "username taken"})
         }
+    },
+    checkAvailableEmail: async (req, res) => {
+        const db = req.app.get('db');
+        const { email } = req.params;
+        const unique = await db.Account.VerifyEmail([email.toLowerCase()])
+        if(!unique.length){
+            res.status(200).send({message: "available"})
+        } else {
+            res.status(200).send({message: "taken"})
+        }
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './Login.scss';
 
@@ -34,8 +35,7 @@ class Login extends Component{
                         message: res.data.message
                     })
                 } else {
-                    console.log(res.data)
-                    alert('It works!')
+                    this.props.history.push('/feed')
                 }
             })
         } else {
@@ -79,4 +79,4 @@ class Login extends Component{
     }
 }
 
-export default Login;
+export default withRouter(Login);

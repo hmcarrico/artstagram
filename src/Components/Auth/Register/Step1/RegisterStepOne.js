@@ -2,16 +2,17 @@ import React from 'react';
 import '../Register.scss';
 
 function RegisterStepOne(props){
-    const { registerStep, handleInputs, handleKeyPress, message } = props;
+    const { registerStep, handleInputs, handleKeyPress, message, checkAvailableEmail, emailAvailable } = props;
     return (
         <div className='register'>
             
             <div>
                 <h3>Email</h3>
+                <p style={emailAvailable ? {color: "green"} : {color: "red"}}>{emailAvailable}</p>
                 <input
                     name='email'
                     onChange={(e) => handleInputs(e)}
-                    onKeyPress={(e) => handleKeyPress(e, 1)}
+                    onKeyPress={(e) => checkAvailableEmail(e, 1)}
                 />
             </div>
             <div>

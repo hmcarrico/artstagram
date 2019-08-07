@@ -1,9 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+
+
 .video-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h2 {
+        margin: 3px;
+    }
+    h1{
+        margin: 3px;
+        font-size: 60px;
+        font-family: 'Dancing Script', cursive;
+    }
 }
 
 video.video {

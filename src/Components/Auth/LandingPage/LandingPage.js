@@ -16,7 +16,9 @@ function LandingPage(props){
                 </video>
             </div> */}
             <div>
-                <h1>Welcome</h1>
+                <h2>Welcome</h2>
+                    <h2>to</h2>
+                <h1>Artsagram</h1>
             </div>
             <div>
                 <button onClick={() => changeStep(2)}>Login</button>
