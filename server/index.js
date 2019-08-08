@@ -10,6 +10,7 @@ const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 const auth = require("./routes/authRoutes");
 const users = require("./routes/userRoutes");
 const posts = require("./routes/postRoutes");
+const comments = require("./routes/commentRoutes");
 
 app.use(express.json());
 app.use(
@@ -35,6 +36,7 @@ massive(CONNECTION_STRING).then(db => {
 app.use("/auth", auth);
 app.use("/users", users);
 app.use("/posts", posts);
+app.use("/comments", comments);
 
 const PORT = SERVER_PORT || 6000;
 app.listen(PORT, () => console.log(`hey hey, you're on port ${PORT}`));

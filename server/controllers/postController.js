@@ -8,11 +8,16 @@ module.exports = {
     },
     detailedPost: (req, res) => {
         const db = req.app.get('db');
-        const { post_id } = req.params;
+        const { postId } = req.params;
+        db.Posts.GetDetailedPost(postId).then(post => {
+            res.status(200).send(post[0])
+        })
     },
     createPost: (req, res) => {
         const db = req.app.get('db');
-        const {  } = req.body;
-
+        const { userId, postPhoto, description, genre } = req.body;
+        db.Posts.CreatePost([userId, postPhoto, description, genre]).then(posts => {
+            res.status(200).send(posts)
+        })
     }
 }

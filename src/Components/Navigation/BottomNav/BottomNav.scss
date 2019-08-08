@@ -1,0 +1,15 @@
+
+.bottom-nav-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: rgb(206, 206, 210);
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    img {
+        height: 40px;
+        width: 40px;
+    }
+}

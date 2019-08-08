@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 45px;
     .follows {
         display: flex;
         flex-direction: column;
@@ -14,19 +15,24 @@
     b {
         font-size: 14px;
     }
+    h3 {
+        font-size: 30px;
+        margin: 0;
+    }
 }
 
 .followers-picture {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     div {
         padding: 5px;        
     }
     img {
-        height: 180px;
-        width: 180px;
-        border: 10px solid black;
+        height: 100px;
+        width: 100px;
+        border: 5px solid black;
         border-radius: 50%;
         padding: 5px;
     }
@@ -49,9 +55,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-bottom: 50px;
     img {
         max-height: 150px;
         max-width: 180px;
         margin: 10px;
     }
 }
+
+.post {
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    b {
+        border-bottom: solid black 3px;
+        margin-bottom: 15px;
+    }
+}
+
+// style={{fontSize: '30px', margin: '0 auto', textAlign: 'center'}
