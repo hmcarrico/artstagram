@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserPosts from '../UserPosts/UserPosts';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './Profile.scss';
@@ -10,7 +11,8 @@ class Profile extends Component{
         this.state = {
             user: [],
             posts: [],
-            loading: true
+            loading: true,
+            user_id: null
         }
     }
     async componentDidMount(){
@@ -21,13 +23,15 @@ class Profile extends Component{
             this.setState({
                 user: userData,
                 posts: postData,
-                loading: false
+                loading: false,
+                user_id: userData.user_id
             })
         }
     }
 
     render(){
-        const { user, posts } = this.state;
+        const { user, posts, user_id } = this.state;
+        const { username } = this.props.match.params;
         const displayUserPosts = posts.map(post => {
             return <div>
                 <UserPosts post={post}/>
@@ -55,12 +59,16 @@ class Profile extends Component{
                             <p>{posts.length}</p>
                         </div>
                         <div className="follows">
-                            <b>Followers</b>
-                            <p>200</p>
+                            <Link to={`/followers/${username}/${user_id}`}>
+                                <b>Followers</b>
+                                <p>200</p>
+                            </Link>
                         </div>
                         <div className="follows">
+                        <Link to={`/following/${username}/${user_id}`}>
                             <b>Following</b>
                             <p>130</p>
+                        </Link>
                         </div>
                     </div>
                     

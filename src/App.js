@@ -11,7 +11,7 @@ import './App.css';
 class App extends Component {
   componentDidMount(){
     axios.get('/users/usersession').then(res => {
-      console.log('app-->',res.data)
+      console.log('REMEMBER TO CONNECT APP JS TO REDUX')
       // this.props.setUser(res.data)
     })
   }

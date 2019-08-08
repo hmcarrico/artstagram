@@ -21,8 +21,15 @@ function BottomNav(props){
             </Link>
             <Link to='/newpost'>
                 <img
-                    src="https://img.icons8.com/material/64/000000/add-to-clipboard.png"
+                    src="https://img.icons8.com/ios-glyphs/30/000000/plus.png"
+                    className="add-button"
                     alt="new post"
+                />
+            </Link>
+            <Link to='/stats'>
+                <img
+                    src="https://img.icons8.com/metro/26/000000/add-user-male.png"
+                    alt="followers"
                 />
             </Link>
             <Link to={`/account/${username}`} >

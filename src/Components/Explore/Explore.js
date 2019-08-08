@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import './Feed.scss';
+import './Explore.scss';
 
-class Feed extends Component{
+class Explore extends Component{
     constructor(){
         super();
         this.state = {
@@ -12,11 +12,11 @@ class Feed extends Component{
 
     render(){
         return (
-            <div className='feed-container'>
-                <h1>Feed</h1>
+            <div className='explore-container'>
+                <h1>Explore</h1>
             </div>
         )
     }
 }
 
-export default Feed;
+export default Explore;

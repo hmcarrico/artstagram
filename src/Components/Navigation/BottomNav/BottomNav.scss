@@ -7,9 +7,14 @@
     background: rgb(206, 206, 210);
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
     padding-top: 10px;
     img {
         height: 40px;
         width: 40px;
+    }
+    .add-button {
+        height: 60px;
+        width: 60px;
     }
 }

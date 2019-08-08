@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import './DetailedPost.scss';
 
 class DetailedPost extends Component{
@@ -7,7 +8,8 @@ class DetailedPost extends Component{
         super();
         this.state = {
             post: [],
-            comments: []
+            comments: [],
+            commentText: null
         }
     }
     async componentDidMount(){
@@ -19,7 +21,28 @@ class DetailedPost extends Component{
             comments: commentData
         })
     }
+
+    postComment = () => {
+        const { postId } = this.props.match.params;
+        const { commentText } = this.state;
+        const { user } = this.props;
+        const commentDataToSend = {
+            postId,
+            comment: commentText,
+            userId: user.user_id
+        }
+        if(commentText){
+            axios.post('/comments/create', commentDataToSend).then(res => {
+                this.setState({
+                    commentText: null,
+                    comments: res.data
+                })
+            })
+        }
+    }
+
     render(){
+        console.log('hehe-->', this.state)
         const { post, comments } = this.state;
         const displayPost = post.map(post => {
             return <div className="detailed-post-container">
@@ -46,7 +69,7 @@ class DetailedPost extends Component{
             </div>
         })
         return (
-            <div>
+            <div className="full-comment-container">
                 {displayPost}
                 <hr />
                 <div>
@@ -60,10 +83,11 @@ class DetailedPost extends Component{
                         <div>
                             <input
                                 placeholder="Add a comment..."
+                                onChange={(e) => this.setState({commentText: e.target.value})}
                             />
                         </div>
                         <div>
-                            <button>Post</button>
+                            <button onClick={this.postComment}>Post</button>
                         </div>
                     </div>
                 </div>
@@ -72,4 +96,8 @@ class DetailedPost extends Component{
     }
 }
 
-export default DetailedPost;
+const mapStateToProps = (state) => {
+    return state.userReducer
+}
+
+export default connect(mapStateToProps)(DetailedPost);

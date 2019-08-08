@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import './Feed.scss';
+import './Stats.scss';
 
-class Feed extends Component{
+class Stats extends Component{
     constructor(){
         super();
         this.state = {
@@ -12,11 +12,11 @@ class Feed extends Component{
 
     render(){
         return (
-            <div className='feed-container'>
-                <h1>Feed</h1>
+            <div className='follow-fequest-container'>
+                <h1>Stats</h1>
             </div>
         )
     }
 }
 
-export default Feed;
+export default Stats;

@@ -11,6 +11,7 @@ const auth = require("./routes/authRoutes");
 const users = require("./routes/userRoutes");
 const posts = require("./routes/postRoutes");
 const comments = require("./routes/commentRoutes");
+const follows = require("./routes/followRoutes");
 
 app.use(express.json());
 app.use(
@@ -37,6 +38,7 @@ app.use("/auth", auth);
 app.use("/users", users);
 app.use("/posts", posts);
 app.use("/comments", comments);
+app.use("/follows", follows);
 
 const PORT = SERVER_PORT || 6000;
 app.listen(PORT, () => console.log(`hey hey, you're on port ${PORT}`));
