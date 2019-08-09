@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Follows.scss';
 
@@ -34,23 +35,25 @@ class Follows extends Component{
         const { follows } = this.state;
         const followingDisplay = follows.map(person => {
             return (
-                <div className='detailed-follows'>
-                    <div className="detailed-follow-container">
-                        <img
-                            src={person.profile_picture}
-                            className='follow-profile-pic'
-                        />
-                        <div className="sub-details-followers">
-                            <div>
-                                <b>{person.username}</b>
-                            </div>
-                            <div className='follow-name'>
-                                <p>{person.first_name} {person.last_name}</p>
+                <Link to={`/account/${person.username}`} >
+                    <div className='detailed-follows'>
+                        <div className="detailed-follow-container">
+                            <img
+                                src={person.profile_picture}
+                                className='follow-profile-pic'
+                            />
+                            <div className="sub-details-followers">
+                                <div>
+                                    <b>{person.username}</b>
+                                </div>
+                                <div className='follow-name'>
+                                    <p>{person.first_name} {person.last_name}</p>
+                                </div>
                             </div>
                         </div>
+                        <button>Following &#10003;</button>
                     </div>
-                    <button>Following &#10003;</button>
-                </div>
+                </Link>
             )
         })
         return (
