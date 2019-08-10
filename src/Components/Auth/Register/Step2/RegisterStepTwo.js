@@ -2,10 +2,10 @@ import React from 'react';
 import '../Register.scss';
 
 function RegisterStepTwo(props){
-    const { handleInputs, isAvailable, checkAvailableUsernames, registerUser } = props;
+    const { handleInputs, isAvailable, checkAvailableUsernames, registerUser, changeStep } = props;
     const splitCheck = isAvailable.split(" ");
     return (
-        <div className='register'>
+        <div className='register-two'>
             <div>
                 <h3>First Name:</h3>
                 <input
@@ -37,6 +37,9 @@ function RegisterStepTwo(props){
                 />
             </div>
             <button onClick={() => registerUser()}>Sign Up!</button>
+            <div>
+                <p style={{textAlign: "center"}} onClick={() => changeStep(2)}>Already have an account? <b>Sign in</b></p>
+            </div>
         </div>
     )
 }

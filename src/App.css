@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Rokkitt&display=swap');
 
 .app {
-  width: 375px;
+  width: auto; /*!Change to 400 for mobile devices */
   font-family: 'Rokkitt', serif;
+  color: rgb(19, 18, 18);
 }
+
 
 input {
   border: 2px solid gray;
-  
+}
+
+body {
+  font-size: 16px;
+}
+input[type="text"] {
+  font-size: inherit;
 }
 
 input:focus{
@@ -24,9 +32,10 @@ textarea {
 
 button {
   color: white;
-  background: black;
+  background: rgb(19, 18, 18);
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
   border: none;
+  font-family: 'Rokkitt', serif;
 }

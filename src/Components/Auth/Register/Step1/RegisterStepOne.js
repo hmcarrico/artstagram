@@ -2,7 +2,7 @@ import React from 'react';
 import '../Register.scss';
 
 function RegisterStepOne(props){
-    const { registerStep, handleInputs, handleKeyPress, message, checkAvailableEmail, emailAvailable } = props;
+    const { registerStep, handleInputs, handleKeyPress, message, checkAvailableEmail, emailAvailable, changeStep } = props;
     return (
         <div className='register'>
             
@@ -38,6 +38,9 @@ function RegisterStepOne(props){
                 <p style={{color: "red"}}>{message}</p>
             </div>
             <button onClick={() => registerStep(2)}>Next</button>
+            <div>
+                <p style={{textAlign: "center"}} onClick={() => changeStep(2)}>Already have an account? <b>Sign in</b></p>
+            </div>
         </div>
     )
 }

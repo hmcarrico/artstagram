@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
 
-.video-container{
+.landing-content-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background: rgba(255, 255, 255, 0.801);
+    position: fixed;
+    width: 310px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px; /* Negative half of height. */
+    margin-left: -155px; /* Negative half of width. */
+    z-index: 10;
+    border-radius: 40px;
+    border: solid 5px rgb(19, 18, 18);
     div {
         display: flex;
         flex-direction: column;
@@ -17,13 +27,43 @@
         margin: 3px;
     }
     h1{
-        margin: 3px;
-        font-size: 60px;
+        margin: 3px 3px 20px 3px;
+        font-size: 50px;
+        background-image: linear-gradient(to left, violet, indigo, blue, green, khaki, orange, red);
+        -webkit-background-clip: text;
+        color: transparent;
         font-family: 'Dancing Script', cursive;
+    }
+    button{
+        margin: 18px;
+        width: 200px;
+        font-size: 20px
     }
 }
 
-video.video {
-    height: 300px;
-    width: 112%;
+.landing-background {
+    min-width: 100%; 
+    min-height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .05em solid rgb(19, 18, 18); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .20em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+  /* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(19, 18, 18); }
 }

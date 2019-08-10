@@ -1,0 +1,12 @@
+.auth-container {
+    min-width: 100%; 
+    min-height: 100%;
+    position: fixed;
+    z-index: -1;
+    background-image: url("https://i.gifer.com/78R0.gif");
+    button {
+        margin: 30px;
+        width: 200px;
+        font-size: 20px
+    }
+}

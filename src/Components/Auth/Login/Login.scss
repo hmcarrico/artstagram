@@ -3,6 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: rgba(255, 255, 255, 0.801);
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px; /* Negative half of height. */
+    margin-left: -150px; /* Negative half of width. */
+    z-index: 10;
+    border-radius: 40px;
+    border: solid 5px rgb(19, 18, 18);
+    input {
+        width: 170px;
+        border-radius: 20px;
+    }
 }
 
 .login div {

@@ -38,12 +38,6 @@ class Profile extends Component{
         const { user, posts, user_id, followers, following } = this.state;
         const { username } = this.props.match.params;
         const currentUser = this.props.user.username;
-        console.log("currentUser & username", currentUser, username)
-        console.log(followers)
-        console.log("user.username", user.username)
-        if(user.username){
-        console.log(followers.includes(currentUser))
-        }
             const doYouFollow = user.username ?
                 followers.filter(person => {
                 console.log(person)

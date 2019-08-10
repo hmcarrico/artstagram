@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LandingPage from '../LandingPage/LandingPage';
 import Login from '../Login/Login';
 import RegisterWizard from '../Register/Wizard/RegisterWizard';
+import './AuthWizard.scss';
 
 class AuthWizard extends Component{
     constructor(){
@@ -40,8 +41,8 @@ class AuthWizard extends Component{
             </div>
         }
         return (
-            <div>
-                <div>
+            <div >
+                <div className="auth-container">
                     {display}
                 </div>
             </div>

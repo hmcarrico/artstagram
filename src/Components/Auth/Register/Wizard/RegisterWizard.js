@@ -3,6 +3,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom'
 import StepOne from '../Step1/RegisterStepOne';
 import StepTwo from '../Step2/RegisterStepTwo';
+import '../Register.scss'
 
 class RegisterWizard extends Component{
     constructor(){
@@ -153,6 +154,7 @@ class RegisterWizard extends Component{
                     handleInputs={this.handleInputs}
                     handleKeyPress={this.handleKeyPress}
                     checkAvailableEmail={this.checkAvailableEmail}
+                    changeStep={changeStep}
                 />
             </div>
         } else if (registerStep === 2){
@@ -165,14 +167,12 @@ class RegisterWizard extends Component{
                     checkAvailableUsernames={this.checkAvailableUsernames}
                     registerUser={this.registerUser}
                     isAvailable={isAvailable}
+                    changeStep={changeStep}
                 />
             </div>
         }
         return <div>
             {displayRegisterPage}
-            <div>
-                <p style={{textAlign: "center"}} onClick={() => changeStep(2)}>Already have an account? <b>Sign in</b></p>
-            </div>
         </div>
     }
 }
