@@ -1,7 +1,7 @@
 const initialState = {
     user: {
-        username: "hello",
-        user_id: 1
+        username: "bye",
+        user_id: 2
     }
 };
 

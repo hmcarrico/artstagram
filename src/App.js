@@ -23,7 +23,7 @@ class App extends Component {
           this.props.location.pathname !== "/" &&
           <Header />
         }
-        {routes}
+          {routes}
         {
           this.props.location.pathname !== "/" &&
           <BottomNav />

@@ -9,6 +9,7 @@ import PostWizard from './Components/Posts/PostWizard/PostWizard';
 import Explore from "./Components/Explore/Explore";
 import Stats from "./Components/Account/Stats/Stats";
 import Follows from './Components/Account/Follows/Follows';
+import FollowRequest from './Components/Account/FollowRequest/FollowRequest';
 
 export default (
     <Switch>
@@ -20,5 +21,6 @@ export default (
         <Route path="/stats" component={Stats} />
         <Route path="/newpost" component={PostWizard} />
         <Route path="/account/:username" component={Profile} />
+        <Route path="/request/:username" component={FollowRequest} />
     </Switch>
 );

@@ -97,7 +97,7 @@ class Profile extends Component{
                                         ?
                                         <button>Following &#10003;</button>
                                         :
-                                        <button>Follow</button>
+                                        <button /*onClick={}*/>Follow</button>
 
                                     }
                                 </div>

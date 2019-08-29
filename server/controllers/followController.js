@@ -26,5 +26,12 @@ module.exports = {
         db.Followers.AcceptFollow([personWhoIsFollowed, personWhoFollows]).then(() => {
             res.status(200).send({message: `Follow Request accepted`})
         })
+    },
+    getFollowRequest: (req, res) => {
+        const db = req.app.get('db');
+        const { personWhoIsFollowed } = req.params;
+        db.Followers.GetFollowRequest(personWhoIsFollowed).then(followers => {
+            res.status(200).send(followers)
+        })
     }
 }
