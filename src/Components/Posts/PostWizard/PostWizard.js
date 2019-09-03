@@ -3,6 +3,7 @@ import axios from 'axios';
 import ImageFilter from 'react-image-filter';
 // import { GithubPicker } from 'react-color';
 import colors from './colors.json';
+import FilterOptions from './FilterOptions';
 
 class PostWizard extends Component{
     constructor(){
@@ -10,7 +11,8 @@ class PostWizard extends Component{
         this.state = {
             selectedFile: null,
             file: null,
-            filter: [1,0,0,0,0,0,1,0,0,0,0,.2,0,.2,0,.1,0,.4,0,0,0,0,1,0]
+            filter: [1,0,0,0,0,0,1,0,0,0,0,.2,0,.2,0,.1,0,.4,0,0,0,0,1,0],
+            image: null
         }
     }
 
@@ -25,6 +27,9 @@ class PostWizard extends Component{
         }).then(res => {
             console.log("ADDED!",res)
             const imgUrl = res.data.Location;
+            this.setState({
+                image: imgUrl
+            })
 
         }).catch(error => {
             alert('fail')
@@ -49,10 +54,16 @@ class PostWizard extends Component{
         }
     }
 
+    changeFilter = (newFilter) => {
+        this.setState({
+            filter: newFilter
+        })
+    }
+
     render(){
-        const { filter } = this.state;
+        const { filter, image } = this.state;
         console.log(this.state)
-        const chooseFilter = colors.map(color => console.log('COLOR', color))
+        const chooseFilter = colors.map(colors => <FilterOptions changeFilter={this.changeFilter} colors={colors} image={image}/>)
         return (
             <div>
                 <br /><br /><br /><br />
@@ -61,9 +72,9 @@ class PostWizard extends Component{
                     <button type='submit'>Send</button>
                 </form>
                 {
-                    filter ?
+                    image ?
                     <ImageFilter
-                        image='https://source.unsplash.com/random/1200x800'
+                        image={image}
                         filter={filter} 
                     />
                     :
@@ -71,6 +82,10 @@ class PostWizard extends Component{
                         image='https://source.unsplash.com/random/1200x800'
                     />
                 }
+
+
+
+                {chooseFilter}
 
                 <select onChange={ this.handleFilter }>
                     <option default value="none">None</option>

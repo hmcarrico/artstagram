@@ -1,0 +1,44 @@
+.filter-picker {
+    width: 80%;
+    height: 130px;
+    padding: 8px;
+}
+
+.carousel {
+    display: flex;
+    // flex-wrap: wrap;
+    div {
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+
+    }
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0 100px 0;
+}
+
+.alice-carousel__dots{
+    display: none;
+}
+
+.alice-carousel__next-btn-wrapper{
+    display: none;
+}
+
+.alice-carousel__prev-btn-wrapper{
+    display: none;
+}
+
+.alice-carousel__next-btn{
+    display: none;
+}
+
+.alice-carousel__prev-btn {
+    display: none;
+}
