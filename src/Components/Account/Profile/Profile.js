@@ -18,8 +18,9 @@ class Profile extends Component{
         }
     }
     async componentDidMount(){
-        let userData = await axios.get(`/users/${this.props.match.params.username}`).then(res => res.data[0])
-        let postData = await axios.get(`/posts/user/${this.props.match.params.username}`).then(res => res.data)
+        const { username } = this.props.match.params;
+        let userData = await axios.get(`/users/${username}`).then(res => res.data[0])
+        let postData = await axios.get(`/posts/user/${username}`).then(res => res.data)
         let followerData = await axios.get(`/follows/followerWhoFollowMe/${userData.user_id}`).then(res => res.data)
         let followingData = await axios.get(`/follows/whoIAmFollowing/${userData.user_id}`).then(res => res.data)
         if(userData){
@@ -40,7 +41,6 @@ class Profile extends Component{
         const currentUser = this.props.user.username;
             const doYouFollow = user.username ?
                 followers.filter(person => {
-                console.log(person)
                 return person.username === currentUser
             }): false
         const displayUserPosts = posts.map(post => {

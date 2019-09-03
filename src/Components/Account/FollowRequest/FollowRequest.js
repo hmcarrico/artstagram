@@ -13,11 +13,26 @@ class FollowRequest extends Component{
     }
 
     componentDidMount(){
+        this.getFollowers()
+    }
+
+    getFollowers = () => {
         axios.get(`/follows/getfollowrequest/${this.props.user.user_id}`).then(res => {
             console.log("FOLLOW REQUEST DATA", res)
             this.setState({
                 followRequest: res.data
             })
+        })
+    }
+
+    acceptRequest = (personWhoRequestsId) => {
+        const { user_id } = this.props.user;
+        const requestInfo = {
+            personWhoFollows: personWhoRequestsId,
+            personWhoIsFollowed: user_id
+        }
+        axios.put("/follows/acceptfollowrequest", requestInfo).then(res => {
+            console.log(res)
         })
     }
 
@@ -41,7 +56,7 @@ class FollowRequest extends Component{
                                 </div>
                             </div>
                         </div>
-                        <button>Accept</button>
+                        <button onClick={() => this.acceptRequest(request.person_who_follows)}>Accept</button>
                     </div>
                 </Link>
             )

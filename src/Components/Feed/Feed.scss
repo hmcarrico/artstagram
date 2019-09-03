@@ -2,5 +2,17 @@
     padding-top: 70px;
     font-size: 50px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    img {
+        max-height: 300px;
+        max-width: 300px;
+    }
+}
+
+.inner-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

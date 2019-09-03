@@ -1,4 +1,11 @@
 module.exports = {
+    getFeed: (req, res) => {
+        const db = req.app.get('db');
+        const { id } = req.params;
+        db.Posts.GetFeed(id).then(posts => {
+            res.status(200).send(posts)
+        })
+    },
     getUsersPosts: (req, res) => {
         const db = req.app.get('db');
         const { username } = req.params;
